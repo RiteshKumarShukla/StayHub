@@ -14,7 +14,7 @@ The ER diagram illustrates the relationships between the following entities:
 - Guests
 - Bookings
 
-![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/79fb3258-c283-4838-9d47-f4cc856aa77d)
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/dccd5627-0a42-4832-a58f-bfb71cca62b4)
 
 ### Explanation
 
