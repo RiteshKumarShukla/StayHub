@@ -14,3 +14,28 @@ The ER diagram illustrates the relationships between the following entities:
 - Guests
 - Bookings
 
+```
+     +-----------+        +-------------+
+     |   Host    |        |   Property  |
+     +-----------+        +-------------+
+     |   host_id | <----+ | property_id |
+     |   name    |      +---- host_id   |
+     |   status  |           |   ...     |
+     |  location |           +-------------+
+     |  ...      |
+     +-----------+
+
+         1..*       1
+         +---+     +---+
+         |   |     |   |
+         |   v     v   |
+     +-------+     +-------+
+     |  Guest  |     | Booking |
+     +-------+     +-------+
+     | guest_id |   | booking_id |
+     |   name   |   |   guest_id |
+     |  gender  |   | property_id |
+     |   dob    |   |   ...     |
+     |   bio    |   +-------+
+     +-------+
+```
