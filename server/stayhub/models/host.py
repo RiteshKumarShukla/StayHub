@@ -1,13 +1,15 @@
 from stayhub.utils.database import db
 
 class Host:
-    def __init__(self, name, host_status, location, property_type, about, hosting_since):
+   class Host:
+    def __init__(self, name, hostStatus, location, propertyType, about, hostingSince):
         self.name = name
-        self.host_status = host_status
+        self.hostStatus = hostStatus
         self.location = location
-        self.property_type = property_type
+        self.propertyType = propertyType
         self.about = about
-        self.hosting_since = hosting_since
+        self.hostingSince = hostingSince
+
 
     def save(self):
         host_id = db.hosts.insert_one(self.to_dict()).inserted_id
