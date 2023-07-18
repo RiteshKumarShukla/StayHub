@@ -107,3 +107,52 @@ The property listing page allows guests to browse and book available properties.
 | Property Details | Show more information about a property |
 | Booking Process | Initiate the booking process for a property |
 
+
+## API Endpoints
+
+### Host Management API
+
+| Method | Endpoint                | Description                      |
+| ------ | ----------------------- | -------------------------------- |
+| GET    | /api/hosts              | Retrieve all hosts               |
+| GET    | /api/hosts/{hostId}     | Retrieve a specific host         |
+| POST   | /api/hosts              | Create a new host                |
+| PUT    | /api/hosts/{hostId}     | Update a specific host           |
+| DELETE | /api/hosts/{hostId}     | Delete a specific host           |
+
+### Property Management API
+
+| Method | Endpoint                   | Description                         |
+| ------ | -------------------------- | ----------------------------------- |
+| GET    | /api/properties            | Retrieve all properties              |
+| GET    | /api/properties/{propertyId} | Retrieve a specific property         |
+| POST   | /api/properties            | Create a new property                |
+| PUT    | /api/properties/{propertyId} | Update a specific property           |
+| DELETE | /api/properties/{propertyId} | Delete a specific property           |
+
+### Guest Management API
+
+| Method | Endpoint                | Description                      |
+| ------ | ----------------------- | -------------------------------- |
+| GET    | /api/guests             | Retrieve all guests              |
+| GET    | /api/guests/{guestId}   | Retrieve a specific guest         |
+| POST   | /api/guests             | Create a new guest                |
+| PUT    | /api/guests/{guestId}   | Update a specific guest           |
+| DELETE | /api/guests/{guestId}   | Delete a specific guest           |
+
+### Booking Management API
+
+| Method | Endpoint                   | Description                         |
+| ------ | -------------------------- | ----------------------------------- |
+| GET    | /api/bookings              | Retrieve all bookings               |
+| GET    | /api/bookings/{bookingId}  | Retrieve a specific booking          |
+| POST   | /api/bookings              | Create a new booking                 |
+| PUT    | /api/bookings/{bookingId}  | Update a specific booking            |
+| DELETE | /api/bookings/{bookingId}  | Delete a specific booking            |
+
+### Property Listing API
+
+| Method | Endpoint                           | Description                                 |
+| ------ | ---------------------------------- | ------------------------------------------- |
+| GET    | /api/properties/listings           | Retrieve paginated list of properties        |
+| GET    | /api/properties/{propertyId}/details | Retrieve detailed information for a property |
