@@ -45,10 +45,10 @@ The ER diagram illustrates the relationships between the following entities:
 ### Explanation
 
 In this diagram:
-- Hosts can have multiple Properties (one-to-many relationship), indicated by the arrow from `host_id` in the Host entity to `host_id` in the Property entity.
-- Each Property is associated with a single Host.
-- Guests can make multiple Bookings (one-to-many relationship), indicated by the arrow from `guest_id` in the Guest entity to `guest_id` in the Booking entity.
-- Each Booking is associated with a single Property and a single Guest.
+- The Host entity represents individuals who provide rental properties. Each Host can have multiple Properties, forming a one-to-many relationship.
+- The Property entity represents rental properties offered by Hosts. Each Property is associated with a single Host.
+- The Guest entity represents individuals who book rental properties. Guests can make multiple Bookings.
+- The Booking entity represents a reservation made by a Guest for a specific Property.
 
 
 ## UI Mockup
