@@ -1,4 +1,5 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, jsonify, request
+from stayhub.utils.database import hosts_collection
 from stayhub.controllers.host_controller import HostController
 
 host_routes = Blueprint("host_routes", __name__)
@@ -11,7 +12,7 @@ def get_hosts():
 
 @host_routes.route('/api/hosts/<host_id>', methods=['GET'])
 def get_host(host_id):
-    host = host_controller.get_host_by_id(host_id)
+    host = host_controller.get_host(host_id)
     if host:
         return jsonify(host)
     return jsonify({"error": "Host not found"}), 404
