@@ -54,7 +54,7 @@ class Booking:
 
 @app.route("/")
 def index():
-    return ("server running")
+    return ("Server is running at port 5000 !!!!")
 
 # Host routes
 @app.route("/api/hosts", methods=["GET"])
