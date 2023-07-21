@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-brand">
-    <a routerLink="/property-listing">StayHub</a>
+    <a routerLink="/">StayHub</a>
   </div>
   <div class="navbar-hamburger" (click)="toggleNavbar()">
     <div class="hamburger-line"></div>
@@ -8,7 +8,6 @@
     <div class="hamburger-line"></div>
   </div>
   <ul class="navbar-links" [ngClass]="{ active: isNavbarActive }">
-    <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/hosts">Hosts</a></li>
     <li><a routerLink="/guests">Guests</a></li>
     <li><a routerLink="/bookings">Bookings</a></li>
