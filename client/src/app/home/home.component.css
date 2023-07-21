@@ -1,0 +1,103 @@
+/* styles.css */
+.landing-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: white; /* Your theme color */
+  padding-left: 140px;
+  padding-top: 40px;
+  color: #ff385c;
+}
+
+.left-side {
+  flex: 1;
+}
+
+.left-side h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.left-side p {
+  font-size: 25px;
+  margin-bottom: 40px;
+  color: black;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 3px solid #ff385c;
+  width: 350px;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 300px;
+}
+
+.search-icon {
+  background-color: #fff;
+  border: 1px solid #ff385c;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.right-side {
+  flex: 1;
+}
+
+.right-side img {
+  width: 600px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carousel-container {
+  margin-top: 40px;
+}
+
+.carousel-inner img {
+  height: 500px; /* Adjust the height as per your preference */
+}
+
+.carousel-inner img {
+  height: 500px; /* Adjust the height as per your preference */
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #ff385c; /* Your theme color */
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-indicators li {
+  background-color: #ff385c; /* Your theme color */
+  border-color: #ff385c; /* Your theme color */
+}
+
+.carousel-indicators .active {
+  background-color: #fff;
+}
+
+.bottomImage {
+  margin: 0px;
+}
+.bottomImage > img {
+  margin: auto;
+  width: 100%;
+}

@@ -1,0 +1,50 @@
+
+.navbar {
+    background-color: #ff385c;
+    color: #fff; /* Text color for the navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  .navbar a:hover {
+    color: #e5e5e5; /* Hover color for links */
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 100px;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-right: 100px;
+  }
+  
+  .navbar-links li {
+    margin-right: 10px;
+  }
+  .router-link-active {
+    border-bottom: 2px solid #e5e5e5; /* Highlight active link */
+  }
+  
+  /* Additional styles for a more attractive navbar (customize as needed) */
+  .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  

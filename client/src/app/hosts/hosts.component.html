@@ -1,0 +1,61 @@
+<!-- hosts.component.html -->
+<div class="container">
+    <h1>Hosts</h1>
+    <button (click)="createHost()">Add Host</button>
+  
+    <table *ngIf="hosts.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Property Type</th>
+          <th>About</th>
+          <th>Hosting Since</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let host of hosts">
+          <td>{{ host.name }}</td>
+          <td>{{ host.status ? 'Active' : 'Inactive' }}</td>
+          <td>{{ host.location }}</td>
+          <td>{{ host.propertyType }}</td>
+          <td>{{ host.about }}</td>
+          <td>{{ host.hostingSince | date }}</td>
+          <td>
+            <button (click)="editHost(host)">Edit</button>
+            <button (click)="deleteHost(host)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="isCreating || isEditing">
+      <h2>{{ isCreating ? 'Create Host' : 'Edit Host' }}</h2>
+      <form #hostForm="ngForm">
+        <label>Name:</label>
+        <input [ngModel]="isCreating ? newHost.name : selectedHost?.name" (ngModelChange)="isCreating ? newHost.name = $event : selectedHost!.name = $event" name="name" required>
+  
+        <label>Status:</label>
+        <input type="checkbox" [ngModel]="isCreating ? newHost.status : selectedHost?.status" (ngModelChange)="isCreating ? newHost.status = $event : selectedHost!.status = $event" name="status">
+  
+        <label>Location:</label>
+        <input [ngModel]="isCreating ? newHost.location : selectedHost?.location" (ngModelChange)="isCreating ? newHost.location = $event : selectedHost!.location = $event" name="location" required>
+  
+        <label>Property Type:</label>
+        <input [ngModel]="isCreating ? newHost.propertyType : selectedHost?.propertyType" (ngModelChange)="isCreating ? newHost.propertyType = $event : selectedHost!.propertyType = $event" name="propertyType" required>
+  
+        <label>About:</label>
+        <textarea [ngModel]="isCreating ? newHost.about : selectedHost?.about" (ngModelChange)="isCreating ? newHost.about = $event : selectedHost!.about = $event" name="about"></textarea>
+  
+        <label>Hosting Since:</label>
+        <input type="date" [ngModel]="isCreating ? newHost.hostingSince : selectedHost?.hostingSince | date:'yyyy-MM-dd'" (ngModelChange)="isCreating ? newHost.hostingSince = $event : selectedHost!.hostingSince = $event" name="hostingSince" required>
+  
+        <button *ngIf="isCreating" (click)="saveHost()">Save</button>
+        <button *ngIf="isEditing" (click)="updateHost()">Update</button>
+        <button (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  
