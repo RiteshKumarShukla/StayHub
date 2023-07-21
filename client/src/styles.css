@@ -1,1 +1,280 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: #FF385C; /* Use your preferred color for the navbar background */
+    color: #fff; /* Text color for the navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .navbar a {
+    color: #fff; /* Link text color for the navbar */
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  .navbar a:hover {
+    color: #e5e5e5; /* Hover color for links */
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    margin-right: 10px;
+  }
+  
+  .router-link-active {
+    border-bottom: 2px solid #e5e5e5; /* Highlight active link */
+  }
+  
+  /* Additional styles for a more attractive navbar (customize as needed) */
+  .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+ /* styles.css */
+.landing-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color:white; /* Your theme color */
+    padding-left: 140px;
+    padding-top: 40px;
+    color:#FF385C;
+  }
+  
+  .left-side {
+    flex: 1;
+  }
+  
+  .left-side h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .left-side p {
+    font-size: 25px;
+    margin-bottom: 40px;
+    color: black;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 3px solid #FF385C;
+    width: 350px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 300px;
+  }
+  
+  .search-icon {
+    background-color: #fff;
+    border:1px solid #FF385C;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .right-side {
+    flex: 1;
+  }
+  
+  .right-side img {
+    width: 600px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .carousel-container {
+    margin-top: 40px;
+  }
+  
+  .carousel-inner img {
+    height: 500px; /* Adjust the height as per your preference */
+  }
+  
+  
+
+  .carousel-inner img {
+    height: 500px; /* Adjust the height as per your preference */
+    object-fit: cover;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #FF385C; /* Your theme color */
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-indicators li {
+    background-color: #FF385C; /* Your theme color */
+    border-color: #FF385C; /* Your theme color */
+  }
+  
+  .carousel-indicators .active {
+    background-color: #fff;
+  }
+
+.footer {
+    background-color: #FF385C; /* Your theme color */
+    color: #fff;
+    padding: 30px 0;
+    padding-bottom: 0px;
+    margin-top: 30px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    flex: 1 0 250px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-column>ul>li>a{
+    text-decoration: none;
+    color: #e5e5e5;
+  }
+  .footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 30px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    /* margin-bottom: 0px; */
+  }
+  
+  .footer-bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .footer-bottom-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  
+  .footer-company-details p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-company-details a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .footer-company-details a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-language-currency p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .footer-language-currency select {
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+    }
+  
+    .footer-column {
+      flex: 1 0 100%;
+      margin-right: 0;
+    }
+  }
+  
+  /* Media query for responsive navbar */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+    }
+    .navbar.active .navbar-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color:#FF385C;
+      position: absolute;
+      top: 55px;
+      right: 10px;
+      width: 150px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .navbar.active .navbar-links li {
+      margin: 5px;
+    }
+  }
+  
