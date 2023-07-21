@@ -13,6 +13,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
   
   .navbar a {
@@ -29,6 +32,7 @@ body {
   .navbar-brand {
     font-size: 24px;
     font-weight: bold;
+    margin-left: 100px;
   }
   
   .navbar-links {
@@ -36,6 +40,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
+    margin-right: 100px;
   }
   
   .navbar-links li {
@@ -147,6 +152,15 @@ body {
   
   .carousel-indicators .active {
     background-color: #fff;
+  }
+
+
+  .bottomImage{
+    /* margin-left:50px; */
+  }
+  .bottomImage>img{
+    margin: auto;
+    width: 100%;
   }
 
 .footer {
