@@ -1,4 +1,4 @@
-<!-- hosts.component.html -->
+hosts.component.html
 <div class="container">
     <h1>Hosts</h1>
     <button (click)="createHost()">Add Host</button>
@@ -22,7 +22,7 @@
           <td>{{ host.location }}</td>
           <td>{{ host.propertyType }}</td>
           <td>{{ host.about }}</td>
-          <td>{{ host.hostingSince | date }}</td>
+          <td>{{ host.hostingSince }}</td>
           <td>
             <button (click)="editHost(host)">Edit</button>
             <button (click)="deleteHost(host)">Delete</button>

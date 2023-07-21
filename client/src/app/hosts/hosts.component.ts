@@ -1,6 +1,6 @@
 // hosts.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Host } from '../host.model';
+import { HostService } from '../host.service';
 
 @Component({
   selector: 'app-hosts',
@@ -8,89 +8,78 @@ import { Host } from '../host.model';
   styleUrls: ['./hosts.component.css']
 })
 export class HostsComponent implements OnInit {
-  hosts: Host[] = [];
-  selectedHost: Host | null = null;
+  hosts: any[] = [];
   isCreating: boolean = false;
   isEditing: boolean = false;
-  newHost: Host = {
-    id: 0,
-    name: '',
-    status: false,
-    location: '',
-    propertyType: '',
-    about: '',
-    hostingSince: new Date()
-  };
+  selectedHost: any = {};
+  newHost: any = {};
 
-  ngOnInit() {
-    // Fetch hosts data from your backend or a service and update the "hosts" array
-    // For demonstration purposes, I'm adding some sample data here
-    this.hosts = [
-      {
-        id: 1,
-        name: 'John Doe',
-        status: true,
-        location: 'New York, USA',
-        propertyType: 'Apartment',
-        about: 'I love hosting guests and showing them around the city!',
-        hostingSince: new Date('2022-01-15')
+  constructor(private hostService: HostService) { }
+
+  ngOnInit(): void {
+    this.getHosts();
+  }
+
+  getHosts(): void {
+    this.hostService.getHosts().subscribe(
+      (response) => {
+        this.hosts = response.hosts;
       },
-      // Add more sample hosts here
-    ];
+      (error) => {
+        console.error('Error fetching hosts:', error);
+      }
+    );
   }
 
-  createHost() {
+  createHost(): void {
     this.isCreating = true;
-    this.selectedHost = null;
+    this.newHost = {};
   }
 
-  saveHost() {
-    // Add the newHost to the hosts array (and save it to the backend if needed)
-    this.hosts.push({ ...this.newHost, id: this.hosts.length + 1 });
-    this.isCreating = false;
-    this.newHost = {
-      id: 0,
-      name: '',
-      status: false,
-      location: '',
-      propertyType: '',
-      about: '',
-      hostingSince: new Date()
-    };
+  saveHost(): void {
+    this.hostService.createHost(this.newHost).subscribe(
+      () => {
+        this.getHosts();
+        this.isCreating = false;
+      },
+      (error) => {
+        console.error('Error creating host:', error);
+      }
+    );
   }
 
-  editHost(host: Host) {
-    this.selectedHost = { ...host };
+  editHost(host: any): void {
     this.isEditing = true;
+    this.selectedHost = { ...host };
   }
 
-  updateHost() {
-    // Find the index of the selectedHost in the hosts array and update it
-    const index = this.hosts.findIndex(h => h.id === this.selectedHost?.id);
-    if (index !== -1) {
-      this.hosts[index] = { ...this.selectedHost! };
-      this.isEditing = false;
-      this.selectedHost = null;
-    }
+  updateHost(): void {
+    this.hostService.updateHost(this.selectedHost._id, this.selectedHost).subscribe(
+      () => {
+        this.getHosts();
+        this.isEditing = false;
+      },
+      (error) => {
+        console.error('Error updating host:', error);
+      }
+    );
   }
 
-  deleteHost(host: Host) {
-    // Filter out the selectedHost from the hosts array (and delete it from the backend if needed)
-    this.hosts = this.hosts.filter(h => h.id !== host.id);
+  deleteHost(host: any): void {
+    this.hostService.deleteHost(host._id).subscribe(
+      () => {
+        this.getHosts();
+      },
+      (error) => {
+        console.error('Error deleting host:', error);
+      }
+    );
   }
 
-  cancel() {
+  cancel(): void {
     this.isCreating = false;
     this.isEditing = false;
-    this.selectedHost = null;
-    this.newHost = {
-      id: 0,
-      name: '',
-      status: false,
-      location: '',
-      propertyType: '',
-      about: '',
-      hostingSince: new Date()
-    };
+    this.selectedHost = {};
+    this.newHost = {};
   }
 }

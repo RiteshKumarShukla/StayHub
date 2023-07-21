@@ -1,0 +1,18 @@
+<!-- properties.component.html -->
+<div class="container">
+  <div class="property-grid">
+    <div class="property-card" *ngFor="let property of properties">
+      <img [src]="property.img" alt="Property Image" class="property-image">
+      <div class="property-details">
+        <h2>{{ property.title }}</h2>
+        <p>{{ property.location }}</p>
+        <p>{{ property.property_type }}</p>
+        <p>{{ property.description }}</p>
+        <p>Price per Night: {{ property.price_per_night }}</p>
+        <!-- <p>Status: {{ property.status}}</p> -->
+        <button class="book-now-button" style="background-color: #ff385c;">Book Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
