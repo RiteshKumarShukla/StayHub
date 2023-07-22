@@ -1,5 +1,12 @@
-<!-- properties.component.html -->
-<div class="container">
+<div class="property-page">
+  <h1>Unforgettable stays, seamless travel !</h1>
+
+  <div class="filters">
+    <input type="text" [(ngModel)]="titleFilter" (keyup)="applyFilters()" placeholder="Search by title">
+    <input type="text" [(ngModel)]="propertyTypeFilter" (keyup)="applyFilters()" placeholder="Filter by property type">
+    <input type="text" [(ngModel)]="locationFilter" (keyup)="applyFilters()" placeholder="Filter by location">
+  </div>
+
   <div class="property-grid">
     <div class="property-card" *ngFor="let property of properties">
       <img [src]="property.img" alt="Property Image" class="property-image">
@@ -9,10 +16,16 @@
         <p>{{ property.property_type }}</p>
         <p>{{ property.description }}</p>
         <p>Price per Night: {{ property.price_per_night }}</p>
-        <!-- <p>Status: {{ property.status}}</p> -->
         <button class="book-now-button" style="background-color: #ff385c;">Book Now</button>
       </div>
     </div>
   </div>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>{{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </div>
+
 
