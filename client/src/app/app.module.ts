@@ -2,12 +2,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PropertiesComponent } from './properties/properties.component'; // Import PropertiesComponent
-import { PropertyService } from './property.service'; // Import PropertyService
+import { PropertiesComponent } from './properties/properties.component';
+import { PropertyService } from './property.service';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -17,15 +17,14 @@ import { FooterComponent } from './footer/footer.component';
     NavComponent,
     PropertiesComponent,
     FooterComponent
-    // Add PropertiesComponent to declarations
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule, // Add HttpClientModule
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [PropertyService], // Add PropertyService to providers
+  providers: [PropertyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
