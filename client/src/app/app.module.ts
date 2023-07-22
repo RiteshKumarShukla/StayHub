@@ -1,7 +1,6 @@
-// app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Add ReactiveFormsModule import
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,8 +10,9 @@ import { PropertyService } from './property.service';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookingsComponent } from './bookings/bookings.component';
-import { LoginSignupComponent } from './login-signup/login-signup.component';
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HostsComponent } from './hosts/hosts.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +21,19 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
     PropertiesComponent,
     FooterComponent,
     BookingsComponent,
-    LoginSignupComponent,
+    LoginComponent,
+    RegisterComponent,
+    HostsComponent // Add LoginSignupComponent to declarations
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule, // Add ReactiveFormsModule to imports
     HttpClientModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [PropertyService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

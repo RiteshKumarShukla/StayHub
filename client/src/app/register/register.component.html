@@ -1,0 +1,27 @@
+<div class="register-container">
+    <div class="register-form">
+      <h2>Welcome to StayHub !!!</h2>
+      <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input type="text" id="name" name="name" required [(ngModel)]="name">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required [(ngModel)]="lastName">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required [(ngModel)]="password">
+        </div>
+        <button id="registerbtn" type="submit" [disabled]="isLoading">
+          <span *ngIf="isLoading">Loading...</span>
+          <span *ngIf="!isLoading">Register</span>
+        </button>
+      </form>
+    </div>
+  </div>
