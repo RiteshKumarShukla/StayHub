@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyService } from '../property.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'; // Import the Router service
 
 @Component({
   selector: 'app-properties',
@@ -15,7 +17,13 @@ export class PropertiesComponent implements OnInit {
   propertyTypeFilter: string = '';
   locationFilter: string = '';
 
-  constructor(private propertyService: PropertyService) { }
+  // constructor(private propertyService: PropertyService) { }
+  constructor(
+    private propertyService: PropertyService,
+    private http: HttpClient,
+    private router: Router // Inject the Router service
+  ) { }
+
 
   ngOnInit(): void {
     this.getProperties();
@@ -35,6 +43,7 @@ export class PropertiesComponent implements OnInit {
       );
   }
 
+
   applyFilters(): void {
     this.currentPage = 1;
     this.getProperties();
@@ -52,5 +61,21 @@ export class PropertiesComponent implements OnInit {
       this.currentPage--;
       this.getProperties();
     }
+  }
+
+
+  bookProperty(property: any): void {
+    this.http.post<any>('http://127.0.0.1:5000/api/properties/book', property).subscribe(
+      (response: any) => {
+        console.log('Booking successful:',response);
+        alert('Booking Successfull !!!')
+        // Navigate to the booking page on successful booking
+        this.router.navigate(['/bookings']); // Change '/booking' to the actual route for the booking page
+      },
+      (error: any) => {
+        console.error('Error booking property:', error);
+        // Show an error message to the user if booking fails
+      }
+    );
   }
 }

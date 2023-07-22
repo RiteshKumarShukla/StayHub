@@ -35,4 +35,5 @@ export class PropertyService {
 
     return this.http.get<any>(this.baseUrl, { params });
   }
+
 }
