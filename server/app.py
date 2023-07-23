@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from flask_cors import CORS 
 from bson.objectid import ObjectId
 import bcrypt
+import openai
 
 app = Flask(__name__)
 CORS(app) 
@@ -46,9 +47,9 @@ class Booking:
 
 # Property model class
 class Property:
-    def __init__(self, host_id, title, location, status, property_type, description, price_per_night, img):
+    def __init__(self, title, location, status, property_type, description, price_per_night, img):
         self._id = ObjectId()
-        self.host_id = host_id
+        # self.host_id = host_id
         self.title = title
         self.location = location
         self.property_type = property_type
@@ -62,28 +63,6 @@ def index():
     return ("server running")
 
 # User routes
-
-@app.route('/signup/host', methods=['POST'])
-def host_signup():
-    db = get_db()
-    data = request.get_json()
-    email = data.get('email')
-    password = data.get('password')
-
-    # Check if email already exists in the database
-    if db.hosts.find_one({"email": email}):
-        return jsonify({"error": "Email already exists"}), 400
-
-    # Hash the password before saving it in the database
-    hashed_password = hash_password(password)
-
-    # Create a new host document
-    host_id = db.hosts.insert_one({
-        "email": email,
-        "password": hashed_password,
-    }).inserted_id
-
-    return jsonify({"host_id": str(host_id)}), 201
 
 @app.route('/signup/guest', methods=['POST'])
 def guest_signup():
@@ -107,28 +86,6 @@ def guest_signup():
 
     return jsonify({"guest_id": str(guest_id)}), 201
 
-@app.route('/login/host', methods=['POST'])
-def host_login():
-    db = get_db()
-    data = request.get_json()
-    email = data.get('email')
-    password = data.get('password')
-
-    # Find the host with the given email
-    host = db.hosts.find_one({"email": email})
-
-    if not host:
-        return jsonify({"error": "Invalid credentials"}), 401
-
-    # Verify the password
-    if not verify_password(host['password'], password):
-        return jsonify({"error": "Invalid credentials"}), 401
-
-    # Set the user role to "host" in the session
-    session['user_role'] = 'host'
-
-    # Return the host ID in the login response
-    return jsonify({"message": "Host login successful", "host_id": str(host["_id"])}), 200
 
 @app.route('/login/guest', methods=['POST'])
 def guest_login():
@@ -201,12 +158,12 @@ def get_all_properties():
         res.append({
             "id": str(property["_id"]),
             "title": str(property['title']),
-            "host_id": str(property['host_id']),
+            # "host_id": str(property['host_id']),
             "location": str(property['location']),
             "property_type": str(property['property_type']),
             "description": str(property['description']),
             "price_per_night": str(property['price_per_night']),
-            "status": str(property['status']),
+            "status": bool(property['status']),
             "img": str(property['img'])  # Add the 'img' field to the response
         })
 
@@ -222,7 +179,7 @@ def get_property(property_id):
         res = {
             "id": str(property["_id"]),
             "title": str(property["title"]),
-            "host_id": str(property["host_id"]),
+            # "host_id": str(property["host_id"]),
             "location": str(property["location"]),
             "property_type": str(property["property_type"]),
             "description": str(property["description"]),
@@ -239,7 +196,7 @@ def create_property():
     db = get_db()
     data = request.get_json()
     property = Property(
-        host_id=data["host_id"],
+        # host_id=data["host_id"],
         title=data["title"],
         location=data["location"],
         property_type=data["property_type"],
@@ -324,9 +281,10 @@ def get_book_data(booking_id):
         res = {
             "booking_id": str(book_entry["_id"]),
             "property_id": str(book_entry.get("property_id")),
-            "title": str(book_entry.get("property_title")),
+            "title": str(book_entry.get("title")),
+            "img":str(book_entry.get("img")),
             "price_per_night": str(book_entry.get("price_per_night")),
-            "location": str(book_entry.get("property_location")),
+            "location": str(book_entry.get("location")),
             "book_date": str(book_entry.get("book_date")),
             "end_date": str(book_entry.get("end_date"))
         }
@@ -342,6 +300,9 @@ def delete_book_data(booking_id):
         return jsonify({"message": "Booking data deleted successfully"})
     return jsonify({"message": "Booking data not found"}), 404
 
+
+
+# chatBot
 
 if __name__ == '__main__':
     app.run(debug=True)

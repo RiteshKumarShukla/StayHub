@@ -7,6 +7,8 @@ import { PropertiesComponent } from './properties/properties.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HostsComponent } from './hosts/hosts.component';
+import { ChatComponent } from './chat/chat.component';
+import { BookingDetailComponent } from './booking-detail/booking-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,11 +16,14 @@ const routes: Routes = [
   { path: 'properties', component: PropertiesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {path:'hosts', component:HostsComponent}
+  { path: 'hosts', component: HostsComponent },
+  { path: 'chat', component: ChatComponent },
+  { path: 'booking/:id', component: BookingDetailComponent }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

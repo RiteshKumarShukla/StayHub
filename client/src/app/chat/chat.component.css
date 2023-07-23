@@ -1,0 +1,115 @@
+/* chat.component.css */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Chat container */
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 400px;
+    max-width: 90%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Chat window */
+  .chat-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #dddddd #f5f5f5;
+  }
+  
+  .chat-window::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .chat-window::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
+  
+  .chat-window::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+  }
+  
+  /* Message bubbles */
+  .message {
+    max-width: 80%;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+
+  /* User message bubble */
+  .user {
+    align-self: flex-end;
+    background-color:#ff385c;
+    color: #ffffff;
+  }
+  
+  .user::before {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 0 7px 8px;
+    border-color: transparent transparent transparent #ff385c;
+    transform: translateY(-50%);
+  }
+  
+  /* Chatbot message bubble */
+  .chatbot {
+    align-self: flex-start;
+    background-color: #f5f5f5;
+    color: #333333;
+  }
+  
+  .chatbot::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 8px 7px 0;
+    border-color: transparent #f5f5f5 transparent transparent;
+    transform: translateY(-50%);
+  }
+  
+  input[type='text'] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 30px;
+    background-color: #f5f5f5;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+  }
+  
+  input[type='text']::placeholder {
+    color: #999999;
+  }
+  
+  input[type='text']:focus {
+    border-color: #ff385c;
+    box-shadow: 0 0 5px rgba(60, 135, 224, 0.3);
+  }

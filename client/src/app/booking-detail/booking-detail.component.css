@@ -1,0 +1,88 @@
+/* Styling for the booking details container */
+.booking-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  
+  /* Styling for the left side (Booking Details) */
+  .booking-details {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-details h1 {
+    margin-bottom: 10px;
+  }
+  
+  .booking-details img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .booking-details p {
+    margin-bottom: 8px;
+  }
+  
+  .booking-details button {
+    background-color:#ff385c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Styling for the right side (Booking Form) */
+  .booking-form {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-form h2 {
+    margin-bottom: 10px;
+  }
+  
+  .booking-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .booking-form button {
+    background-color:#ff385c;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Styling for the steps (hide/show based on currentStep) */
+  .booking-form > div {
+    display: none;
+  }
+  
+  .booking-form > div:first-child {
+    display: block;
+  }
+  

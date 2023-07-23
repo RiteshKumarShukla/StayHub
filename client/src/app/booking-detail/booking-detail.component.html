@@ -1,0 +1,94 @@
+<div class="booking-details-container">
+  <!-- Left side - Booking Details -->
+  <div class="booking-details">
+    <img [src]="bookingDetails.img" alt="Property Image" />
+    <p>{{ bookingDetails.title }}</p>
+    <p>
+      <strong>Price per Night:</strong> ${{ bookingDetails.price_per_night }}
+    </p>
+    <p><strong>Location:</strong> {{ bookingDetails.location }}</p>
+    <button (click)="startBooking()">Book Now</button>
+  </div>
+
+  <!-- Right side - Multi-step Form -->
+  <div class="booking-form">
+    <div *ngIf="currentStep === 1">
+      <h2>General Details</h2>
+      <form [formGroup]="generalDetailsForm">
+        <input
+          type="text"
+          formControlName="name"
+          required
+          placeholder="Enter You Name"
+        />
+        <input
+          type="email"
+          formControlName="email"
+          required
+          placeholder="Enter Your Email-ID"
+        />
+        <input
+          type="number"
+          formControlName="age"
+          required
+          placeholder="Enter Your Age"
+        />
+        <input
+          type="text"
+          formControlName="gender"
+          required
+          placeholder="Enter Your Gender"
+        />
+        <input
+          type="date"
+          formControlName="checkIn"
+          required
+          placeholder="check-In Date"
+        />
+        <input
+          type="date"
+          formControlName="checkOut"
+          required
+          placeholder="check-Out Date"
+        />
+        <button (click)="nextStep()">Next</button>
+      </form>
+    </div>
+
+    <div *ngIf="currentStep === 2">
+      <h2>Payment Details</h2>
+      <form [formGroup]="paymentDetailsForm">
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Card Holder Name"
+        />
+        <input
+          type="text"
+          formControlName="cardType"
+          placeholder="Enter Card Type"
+        />
+        <input
+          type="number"
+          formControlName="cardNumber"
+          required
+          placeholder="Enter Card Number"
+        />
+        <input
+          type="text"
+          formControlName="cvv"
+          required
+          placeholder="Enter Your CVV"
+        />
+        <input
+          type="date"
+          formControlName="expiryDate"
+          required
+          placeholder="Enter expiry date"
+        />
+        <button (click)="previousStep()">Previous</button>
+        <button (click)="submitBooking()">Confirm Payment</button>
+      </form>
+    </div>
+  </div>
+</div>

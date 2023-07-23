@@ -20,7 +20,7 @@ export class HostService {
   }
 
   updateProperty(property: any): Observable<any> {
-    const url = `${this.baseUrl}/${property._id}`;
+    const url = `${this.baseUrl}/${property.id}`;
     return this.http.put<any>(url, property).pipe(catchError(this.handleError));
   }
 

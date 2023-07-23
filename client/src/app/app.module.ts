@@ -14,6 +14,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { HostService } from './host.service';
+import { ChatComponent } from './chat/chat.component';
+import { BookingDetailComponent } from './booking-detail/booking-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { HostService } from './host.service';
     BookingsComponent,
     LoginComponent,
     RegisterComponent,
-    HostsComponent
+    HostsComponent,
+    ChatComponent,
+    BookingDetailComponent
   ],
   imports: [
     BrowserModule,

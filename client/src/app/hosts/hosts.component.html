@@ -1,16 +1,12 @@
-<div class="container">
-    <h1>Properties</h1>
+   <div class="container">
+    <!-- <h1>Properties</h1> -->
     <div class="content">
-      <div class="form-container">
-        <h2>{{ propertyForm.value._id ? 'Edit Property' : 'Add Property' }}</h2>
+      <div class="form-container" id="formContainer">
+        <h2 id="form_heading">{{ propertyForm.value.id ? 'Edit Property' : 'Add Property' }}</h2>
         <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="host_id">Host ID</label>
-            <input type="text" id="host_id" formControlName="host_id" required>
-          </div>
-          <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" id="title" formControlName="title" required>
+            <input type="text" id="title" formControlName="title" required [(ngModel)]="property.title">
           </div>
           <div class="form-group">
             <label for="location">Location</label>
@@ -42,9 +38,9 @@
           </div>
         </form>
       </div>
-      <div class="table-container">
+      <div class="table-container" id="tableContainer">
         <table class="property-table">
-          <tr>
+          <tr id="table_tr">
             <th>Title</th>
             <th>Location</th>
             <th>Property Type</th>
@@ -62,11 +58,10 @@
             <td>{{ property.status }}</td>
             <td>
               <button class="btn-edit" (click)="onEditProperty(property)">Edit</button>
-              <button class="btn-delete" (click)="onDeleteProperty(property._id)">Delete</button>
+              <button class="btn-delete" (click)="onDeleteProperty(property.id)">Delete</button>
             </td>
           </tr>
         </table>
       </div>
     </div>
   </div>
-  

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HostService } from '../host.service';
+import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2'; // Import SweetAlert
 
 @Component({
   selector: 'app-hosts',
@@ -9,12 +11,13 @@ import { HostService } from '../host.service';
 })
 export class HostsComponent implements OnInit {
   properties: any[] = [];
+  property: any = {};
   propertyForm: FormGroup;
-  isEditing: boolean = false; // Add this property to track editing state
+  isEditing: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private hostService: HostService) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private hostService: HostService) {
     this.propertyForm = this.formBuilder.group({
-      _id: [''],
+      id: [''],
       title: ['', Validators.required],
       location: ['', Validators.required],
       property_type: ['', Validators.required],
@@ -42,50 +45,96 @@ export class HostsComponent implements OnInit {
 
   onSubmit() {
     const formData = this.propertyForm.value;
-    if (formData._id) {
-      this.hostService.updateProperty(formData).subscribe(
-        () => {
-          this.fetchProperties();
-          this.resetForm();
-        },
-        (error) => {
-          console.error('Error updating property:', error);
-        }
-      );
+    if (formData.id) {
+      this.http.put<any>('http://localhost:5000/api/properties/' + formData.id, formData)
+        .subscribe(
+          () => {
+            this.fetchProperties();
+            this.resetForm();
+            Swal.fire({
+              title: 'Updated!',
+              text: 'The property has been updated successfully.',
+              icon: 'success',
+            });
+          },
+          (error) => {
+            console.error('Error updating property:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while updating the property.',
+              icon: 'error',
+            });
+          }
+        );
     } else {
-      this.hostService.createProperty(formData).subscribe(
-        () => {
-          this.fetchProperties();
-          this.resetForm();
-        },
-        (error) => {
-          console.error('Error creating property:', error);
-        }
-      );
+      this.http.post<any>('http://localhost:5000/api/properties', formData)
+        .subscribe(
+          () => {
+            this.fetchProperties();
+            this.resetForm();
+            Swal.fire({
+              title: 'Created!',
+              text: 'The property has been created successfully.',
+              icon: 'success',
+            });
+          },
+          (error) => {
+            console.error('Error creating property:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while creating the property.',
+              icon: 'error',
+            });
+          }
+        );
     }
   }
 
   onEditProperty(property: any) {
-    this.propertyForm.patchValue(property);
-    this.isEditing = true; // Set editing state to true
+    if (property && property.id) {
+      this.propertyForm.patchValue(property);
+      this.isEditing = true;
+      this.propertyForm.get('id')?.setValue(property.id);
+    } else {
+      console.error('Invalid property ID:', property);
+    }
   }
 
   onCancelEdit() {
-    this.isEditing = false; // Set editing state to false
+    this.isEditing = false;
     this.resetForm();
   }
 
   onDeleteProperty(propertyId: string) {
-    if (confirm('Are you sure you want to delete this property?')) {
-      this.hostService.deleteProperty(propertyId).subscribe(
-        () => {
-          this.fetchProperties();
-        },
-        (error) => {
-          console.error('Error deleting property:', error);
-        }
-      );
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this property. This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.hostService.deleteProperty(propertyId).subscribe(
+          () => {
+            this.fetchProperties();
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'The property has been deleted successfully.',
+              icon: 'success',
+            });
+          },
+          (error) => {
+            console.error('Error deleting property:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while deleting the property.',
+              icon: 'error',
+            });
+          }
+        );
+      }
+    });
   }
 
   resetForm() {
