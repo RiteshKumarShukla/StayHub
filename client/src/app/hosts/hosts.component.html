@@ -1,1 +1,72 @@
-<p>hosts works!</p>
+<div class="container">
+    <h1>Properties</h1>
+    <div class="content">
+      <div class="form-container">
+        <h2>{{ propertyForm.value._id ? 'Edit Property' : 'Add Property' }}</h2>
+        <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="host_id">Host ID</label>
+            <input type="text" id="host_id" formControlName="host_id" required>
+          </div>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" formControlName="title" required>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" formControlName="location" required>
+          </div>
+          <div class="form-group">
+            <label for="property_type">Property Type</label>
+            <input type="text" id="property_type" formControlName="property_type" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="price_per_night">Price per Night</label>
+            <input type="number" id="price_per_night" formControlName="price_per_night" required>
+          </div>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" id="status" formControlName="status" required>
+          </div>
+          <div class="form-group">
+            <label for="img">Image URL</label>
+            <input type="text" id="img" formControlName="img" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn-submit">{{ isEditing ? 'Update' : 'Create' }}</button>
+            <button type="button" class="btn-cancel" *ngIf="isEditing" (click)="onCancelEdit()">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <div class="table-container">
+        <table class="property-table">
+          <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Property Type</th>
+            <th>Description</th>
+            <th>Price per Night</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let property of properties">
+            <td>{{ property.title }}</td>
+            <td>{{ property.location }}</td>
+            <td>{{ property.property_type }}</td>
+            <td>{{ property.description }}</td>
+            <td>{{ property.price_per_night }}</td>
+            <td>{{ property.status }}</td>
+            <td>
+              <button class="btn-edit" (click)="onEditProperty(property)">Edit</button>
+              <button class="btn-delete" (click)="onDeleteProperty(property._id)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  

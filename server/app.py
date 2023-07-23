@@ -235,8 +235,6 @@ def get_property(property_id):
 
 @app.route("/api/properties", methods=["POST"])
 def create_property():
-    if not is_host_authenticated():
-        return jsonify({"error": "Unauthorized"}), 401
 
     db = get_db()
     data = request.get_json()
@@ -256,8 +254,7 @@ def create_property():
 
 @app.route("/api/properties/<string:property_id>", methods=["PUT"])
 def update_property(property_id):
-    if not is_host_authenticated():
-        return jsonify({"error": "Unauthorized"}), 401
+
 
     db = get_db()
     data = request.get_json()
@@ -266,8 +263,6 @@ def update_property(property_id):
 
 @app.route("/api/properties/<string:property_id>", methods=["DELETE"])
 def delete_property(property_id):
-    if not is_host_authenticated():
-        return jsonify({"error": "Unauthorized"}), 401
 
     db = get_db()
     result = db.properties.delete_one({"_id": ObjectId(property_id)})
@@ -277,10 +272,6 @@ def delete_property(property_id):
 
 @app.route("/api/properties/book", methods=["POST"])
 def post_property_to_book_collection():
-    # Check if the user is authenticated as a guest
-    # if not is_guest_authenticated():
-    #     return jsonify({"error": "Unauthorized"}), 401
-
     db = get_db()
     data = request.get_json()
     
@@ -303,12 +294,7 @@ def post_property_to_book_collection():
 
     )
 
-    # Insert the booking data into the database
     booking_id = db.book.insert_one(booking.__dict__).inserted_id
-
-    # Update the status of the property to False
-    # if property_id:
-    #     db.properties.update_one({"_id": ObjectId(property_id)}, {"$set": {"status": False}})
 
     return jsonify({"booking_id": str(booking_id), "title":str(title) , "img":str(img) , "description":str(description),"price_per_night":str(price_per_night), "property_type":str(property_type)}), 201
 
@@ -350,10 +336,6 @@ def get_book_data(booking_id):
 # Route to delete a booking data by booking ID
 @app.route("/api/properties/book/<string:booking_id>", methods=["DELETE"])
 def delete_book_data(booking_id):
-    # Check if the user is authenticated as a guest
-    # if not is_guest_authenticated():
-    #     return jsonify({"error": "Unauthorized"}), 401
-
     db = get_db()
     result = db.book.delete_one({"_id": ObjectId(booking_id)})
     if result.deleted_count > 0:

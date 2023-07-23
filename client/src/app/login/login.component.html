@@ -11,6 +11,9 @@
           <input type="password" id="password" name="password" required [(ngModel)]="password">
         </div>
         <button id="loginbtn" type="submit" [disabled]="isLoading || !loginForm.valid">Login</button>
+        <p>
+          New User? <a routerLink="/register">Register</a> to create an account !
+        </p>
       </form>
     </div>
   </div>

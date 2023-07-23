@@ -69,3 +69,19 @@
     font-size: larger;
     font-weight: bold;
   }
+
+  p {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  a {
+    color: #ff385c; /* Color of the link */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

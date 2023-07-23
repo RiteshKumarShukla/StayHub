@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Add ReactiveFormsModule import
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HostsComponent } from './hosts/hosts.component';
+import { HostService } from './host.service';
 
 @NgModule({
   declarations: [
@@ -23,17 +24,17 @@ import { HostsComponent } from './hosts/hosts.component';
     BookingsComponent,
     LoginComponent,
     RegisterComponent,
-    HostsComponent // Add LoginSignupComponent to declarations
+    HostsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule, // Add ReactiveFormsModule to imports
+    ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
     AppRoutingModule,
   ],
-  providers: [PropertyService],
+  providers: [PropertyService,HostService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
