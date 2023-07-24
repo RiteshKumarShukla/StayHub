@@ -66,7 +66,7 @@ export class PropertiesComponent implements OnInit {
 
   bookProperty(property: any): void {
     if (this.authService.isLoggedIn()) {
-    this.http.post<any>('http://127.0.0.1:5000/api/properties/book', property).subscribe(
+    this.http.post<any>('https://stayhub-backend.onrender.com/api/properties/book', property).subscribe(
       (response: any) => {
         console.log('Booking successful:', response);
 

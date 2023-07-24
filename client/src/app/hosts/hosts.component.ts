@@ -46,7 +46,7 @@ export class HostsComponent implements OnInit {
   onSubmit() {
     const formData = this.propertyForm.value;
     if (formData.id) {
-      this.http.put<any>('http://localhost:5000/api/properties/' + formData.id, formData)
+      this.http.put<any>('https://stayhub-backend.onrender.com/api/properties/' + formData.id, formData)
         .subscribe(
           () => {
             this.fetchProperties();
@@ -67,7 +67,7 @@ export class HostsComponent implements OnInit {
           }
         );
     } else {
-      this.http.post<any>('http://localhost:5000/api/properties', formData)
+      this.http.post<any>('https://stayhub-backend.onrender.com/api/properties', formData)
         .subscribe(
           () => {
             this.fetchProperties();

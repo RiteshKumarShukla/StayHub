@@ -22,7 +22,7 @@ export class ChatComponent {
   }
 
   getChatbotResponse(userMessage: string) {
-    this.http.post<any>('http://127.0.0.1:5000/api/chat', { prompt: userMessage }).subscribe(
+    this.http.post<any>('https://stayhub-backend.onrender.com/api/chat', { prompt: userMessage }).subscribe(
       (response) => {
         const chatbotResponse = response.text;
         this.messages.push({ content: chatbotResponse, fromUser: false });

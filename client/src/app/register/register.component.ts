@@ -27,7 +27,7 @@ export class RegisterComponent {
       lastName: this.lastName
     };
 
-    this.http.post<any>('http://127.0.0.1:5000/signup/guest', data).subscribe(
+    this.http.post<any>('https://stayhub-backend.onrender.com/signup/guest', data).subscribe(
       (response) => {
         // Registration successful
         Swal.fire('Register successful', 'You can now login with your account.', 'success');

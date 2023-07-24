@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HostService {
-  private baseUrl = 'http://localhost:5000/api/properties';
+  private baseUrl = 'https://stayhub-backend.onrender.com/api/properties';
 
   constructor(private http: HttpClient) {}
 

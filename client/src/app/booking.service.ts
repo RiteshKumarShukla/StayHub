@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BookingService {
-  private baseUrl = 'http://127.0.0.1:5000/api/properties/book'; // Update this URL if your backend URL is different
+  private baseUrl = 'https://stayhub-backend.onrender.com/api/properties/book'; // Update this URL if your backend URL is different
 
   constructor(private http: HttpClient) { }
 

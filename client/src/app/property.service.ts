@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PropertyService {
-  private baseUrl = 'http://127.0.0.1:5000/api/properties'; // Update this URL if your backend URL is different
+  private baseUrl = 'https://stayhub-backend.onrender.com/api/properties'; // Update this URL if your backend URL is different
 
   constructor(private http: HttpClient) { }
 
