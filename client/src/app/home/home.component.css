@@ -1,4 +1,5 @@
 /* styles.css */
+
 .landing-page {
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +12,8 @@
 
 .left-side {
   flex: 1;
+  margin-bottom: 30px;
+  padding-top: 100px; /* Add some spacing between the left and right sides */
 }
 
 .left-side h1 {
@@ -30,20 +33,26 @@
   display: flex;
   align-items: center;
   border: 3px solid #4A154B;
-  width: 350px;
+  width: 100%; /* Adjust the width to take the full available space */
+  max-width: 350px;
+  border-radius: 20px;
+  padding: 10px; /* Add a maximum width to the search bar */
 }
 
-.search-bar input {
+.search-bar>input {
+  flex: 1; /* Let the input take the remaining space */
   padding: 10px;
   border: none;
   border-radius: 4px;
   margin-right: 10px;
-  width: 300px;
 }
 
+.search-bar>button{
+  border: none;
+}
 .search-icon {
   background-color: #fff;
-  border: 1px solid #4A154B;
+  /* border: 1px solid #4A154B; */
   border-radius: 4px;
   padding: 10px;
   cursor: pointer;
@@ -51,12 +60,12 @@
 
 .right-side {
   flex: 1;
+  margin-top: 30px; /* Add some spacing between the left and right sides */
 }
 
 .right-side img {
-  width: 600px;
-  height: 450px;
-  object-fit: cover;
+  width: 80%; /* Make the image responsive to the container's width */
+  height: auto; /* Allow the height to adjust automatically */
   border-radius: 8px;
 }
 
@@ -65,10 +74,7 @@
 }
 
 .carousel-inner img {
-  height: 500px; /* Adjust the height as per your preference */
-}
-
-.carousel-inner img {
+  width: 100%; /* Make the carousel images full width */
   height: 500px; /* Adjust the height as per your preference */
   object-fit: cover;
 }
@@ -98,8 +104,42 @@
 
 .bottomImage {
   margin: 0px;
+  margin-top: 30px; /* Add some spacing between the carousel and the bottom image */
 }
+
 .bottomImage > img {
   margin: auto;
   width: 100%;
+  height: auto; /* Allow the bottom image to adjust its height automatically */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .landing-page {
+    padding-left: 20px; /* Reduce the left padding for smaller screens */
+    padding-top: 20px; /* Reduce the top padding for smaller screens */
+  }
+
+  .left-side,
+  .right-side {
+    flex: 1 0 100%; /* Make both sides take the full width on smaller screens */
+  }
+
+  .left-side{
+    padding-top: 0px;
+  }
+  .right-side>img{
+    width: 96%;
+  }
+  .search-bar {
+   margin: auto;
+   border-radius: 20px;
+   padding: 10px;
+  }
+  .search-bar>input{
+    border: none;
+  }
+  .search-bar>button{
+    border: none;
+  }
 }

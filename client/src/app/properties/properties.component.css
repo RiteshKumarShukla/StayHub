@@ -1,6 +1,19 @@
 /* properties.component.css */
+
 .property-page {
   padding: 20px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #f7b500;
+}
+
+.star {
+  font-size: 30px;
+  margin-right: 4px;
 }
 
 h1 {
@@ -89,7 +102,7 @@ input[type="text"] {
 }
 
 .book-now-button:hover {
-  background-color: #4A154B;
+  background-color: #6d1b6a;
 }
 
 .pagination {
@@ -116,5 +129,22 @@ input[type="text"] {
 }
 
 .pagination button:hover {
-  background-color:#4A154B;
+  background-color: #6d1b6a;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="text"] {
+    margin-bottom: 10px;
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
 }

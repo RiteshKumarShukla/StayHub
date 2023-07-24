@@ -9,6 +9,13 @@
           <p>{{ property.property_type }}</p>
           <p>{{ property.description }}</p>
           <p>Price per Night: ${{ property.price_per_night }}</p>
+          <div class="rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
           <button class="delete-button" (click)="deleteProperty(property.booking_id)">Cancel Booking</button>
           <button class="delete-button" (click)="getBookingDetails(property.booking_id)">View Details</button>
 

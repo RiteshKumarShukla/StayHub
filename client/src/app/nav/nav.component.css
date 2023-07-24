@@ -1,51 +1,89 @@
+/* navbar.component.css */
 
 .navbar {
-    background-color:#4A154B;
-    color: #fff; /* Text color for the navbar */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .navbar a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bolder;
-    margin-right: 20px;
-  }
-  
-  .navbar a:hover {
-    color: #e5e5e5; /* Hover color for links */
-  }
-  
+  background-color: #4A154B;
+  color: #fff; /* Text color for the navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-right: 20px;
+}
+
+.navbar a:hover {
+  color: #e5e5e5; /* Hover color for links */
+}
+
+.navbar-brand>a {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-left: 20px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-right: 10px;
+}
+
+.router-link-active {
+  border-bottom: 2px solid #e5e5e5; /* Highlight active link */
+}
+
+/* Additional styles for a more attractive navbar (customize as needed) */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
   .navbar-brand>a {
-    font-size: 30px;
-    font-weight: bolder;
-    margin-left: 100px;
+    font-size: 24px;
   }
-  
+
   .navbar-links {
-    list-style: none;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #4A154B;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .navbar-links.active {
     display: flex;
-    margin: 0;
-    padding: 0;
-    margin-right: 100px;
   }
-  
+
   .navbar-links li {
-    margin-right: 10px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  .router-link-active {
-    border-bottom: 2px solid #e5e5e5; /* Highlight active link */
+
+  .navbar-hamburger {
+    display: block;
   }
-  
-  /* Additional styles for a more attractive navbar (customize as needed) */
-  .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
   }
-  
+}

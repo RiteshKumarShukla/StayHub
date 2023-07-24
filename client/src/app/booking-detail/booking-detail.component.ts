@@ -14,6 +14,7 @@ export class BookingDetailComponent implements OnInit {
   currentStep: number = 0;
   generalDetailsForm: FormGroup;
   paymentDetailsForm: FormGroup;
+  nextButtonDisabled: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,7 +33,7 @@ export class BookingDetailComponent implements OnInit {
 
     this.paymentDetailsForm = this.formBuilder.group({
       cvv: ['', Validators.required],
-      cardNumber: ['', Validators.required],
+      cardNumber: ['', [Validators.required, Validators.pattern('^[0-9]{16}$')]],
       expiryDate: ['', Validators.required]
     });
   }
@@ -47,7 +48,7 @@ export class BookingDetailComponent implements OnInit {
       this.bookingService.getBookingDetails(bookingId).subscribe(
         (data) => {
           this.bookingDetails = data;
-          console.log(this.bookingDetails);
+          console.log(this.bookingDetails.img);
         },
         (error) => {
           console.error('Error fetching booking details:', error);
@@ -58,13 +59,28 @@ export class BookingDetailComponent implements OnInit {
     }
   }
 
-
   startBooking() {
     this.currentStep = 1;
   }
 
   nextStep() {
-    this.currentStep++;
+    if (this.currentStep === 1) {
+      if (this.generalDetailsForm.valid) {
+        this.currentStep++;
+        this.nextButtonDisabled = false;
+      } else {
+        this.markFormGroupTouched(this.generalDetailsForm);
+        this.nextButtonDisabled = true;
+      }
+    } else if (this.currentStep === 2) {
+      if (this.paymentDetailsForm.valid) {
+        this.currentStep++;
+        this.nextButtonDisabled = false;
+      } else {
+        this.markFormGroupTouched(this.paymentDetailsForm);
+        this.nextButtonDisabled = true;
+      }
+    }
   }
 
   previousStep() {
@@ -114,5 +130,14 @@ export class BookingDetailComponent implements OnInit {
 
   private submitForm(): Promise<void> {
     return new Promise<void>(resolve => setTimeout(resolve, 2000));
+  }
+
+  private markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+    });
+
+    // Set the 'nextButtonDisabled' to true if there are any invalid fields
+    this.nextButtonDisabled = Object.values(formGroup.controls).some(control => control.invalid);
   }
 }

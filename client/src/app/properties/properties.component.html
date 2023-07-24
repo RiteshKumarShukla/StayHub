@@ -16,7 +16,12 @@
         <p>{{ property.property_type }}</p>
         <p>{{ property.description }}</p>
         <p>Price per Night: ${{ property.price_per_night }}</p>
-        <!-- <button class="book-now-button" style="background-color: #ff385c;">Book Now</button> -->
+        <div class="rating">
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+        </div>
         <button class="book-now-button" style="background-color: #4A154B;" (click)="bookProperty(property)">Add to Bookings</button>
       </div>
     </div>

@@ -41,7 +41,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color:#4A154B;
 }
 
 .form-group textarea {
@@ -141,4 +141,30 @@ margin: 10px 0 10px 0;
 }
 #table_tr th{
   color: whitesmoke;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 15px;
+    margin-left: 0px;
+  }
+
+  .table-container {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0px;
+    overflow-x: auto;
+  }
+
+  .btn-edit{
+    margin-bottom: 5px;
+    width: 72px;
+  }
 }

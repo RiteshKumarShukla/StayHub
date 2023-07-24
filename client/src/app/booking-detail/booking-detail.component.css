@@ -1,89 +1,146 @@
-/* Styling for the booking details container */
 .booking-details-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-  
-  /* Styling for the left side (Booking Details) */
-  .booking-details {
-    flex: 1;
-    max-width: 600px;
-    padding: 20px;
-    /* height: 700px; */
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .booking-details h4 {
-    margin-top: 10px;
-  }
-  
-  .booking-details img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .booking-details p {
-    margin-bottom: 8px;
-  }
-  
-  .booking-details button {
-    background-color:#4A154B;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Styling for the right side (Booking Form) */
-  .booking-form {
-    flex: 1;
-    max-width: 500px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .booking-form h2 {
-    margin-bottom: 10px;
-  }
-  
-  .booking-form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+
+}
+
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #f7b500;
+}
+
+.star {
+  font-size: 30px;
+  margin-right: 4px;
+}
+.error-message{
+  color: red;
+  margin-top:-10px;
+}
+
+.booking-details {
+  flex: 1;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-details h4 {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.booking-details img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.booking-details p {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.booking-details button {
+  background-color: #4A154B;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.booking-details button:hover {
+  background-color: #6b1d7a;
+}
+
+.booking-form {
+  flex: 1;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.booking-form h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.booking-form button {
+  background-color: #4A154B;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.booking-form button:first-child {
+  background-color: #777;
+}
+
+.booking-form button:hover {
+  background-color: #6b1d7a;
+}
+
+/* Styling for the steps (hide/show based on currentStep) */
+.booking-form > div {
+  display: none;
+}
+
+.booking-form > div:first-child {
+  display: block;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .booking-details-container {
+    padding: 10px;
     display: flex;
     flex-direction: column;
   }
-  
-  .booking-form input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+  .booking-details,
+  .booking-form {
+    max-width: 100%;
   }
-  
-  .booking-form button {
-    background-color:#4A154B;
-    color: #fff;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Styling for the steps (hide/show based on currentStep) */
-  .booking-form > div {
-    display: none;
-  }
-  
-  .booking-form > div:first-child {
-    display: block;
-  }
-  
+}

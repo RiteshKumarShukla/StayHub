@@ -3,10 +3,18 @@
   <div class="booking-details">
     <img [src]="bookingDetails.img" alt="Property Image" />
     <h4>{{ bookingDetails.title }}</h4>
+    <p>Discover timeless elegance and impeccable hospitality at our luxurious city hotel. Indulge in modern comforts, exquisite dining, and serene relaxation. Your unforgettable stay awaits. Welcome to our world of enchantment.</p>
     <p>
       <strong>Price per Night:</strong> ${{ bookingDetails.price_per_night }}
     </p>
     <p><strong>Location:</strong> {{ bookingDetails.location }}</p>
+    <div class="rating">
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+      <span class="star">&#9733;</span>
+    </div>
     <button (click)="startBooking()">Book Now</button>
   </div>
 
@@ -21,24 +29,39 @@
           required
           placeholder="Enter You Name"
         />
+        <div *ngIf="generalDetailsForm.controls['name']?.touched && generalDetailsForm.controls['name']?.invalid" class="error-message">
+          Name is required
+        </div>
         <input
           type="email"
           formControlName="email"
           required
           placeholder="Enter Your Email-ID"
         />
+        <div *ngIf="generalDetailsForm.controls['email']?.touched && generalDetailsForm.controls['email']?.hasError('required')" class="error-message">
+          Email is required
+        </div>
+        <div *ngIf="generalDetailsForm.controls['email']?.touched && generalDetailsForm.controls['email']?.hasError('email')" class="error-message">
+          Invalid email format
+        </div>
         <input
           type="number"
           formControlName="age"
           required
           placeholder="Enter Your Age"
         />
+        <div *ngIf="generalDetailsForm.controls['age']?.touched && generalDetailsForm.controls['age']?.invalid" class="error-message">
+          Age is required
+        </div>
         <input
           type="text"
           formControlName="gender"
           required
           placeholder="Enter Your Gender"
         />
+        <div *ngIf="generalDetailsForm.controls['gender']?.touched && generalDetailsForm.controls['gender']?.invalid" class="error-message">
+          Gender is required
+        </div>
         <label for="">Check-In Date:</label>
         <input
           type="date"
@@ -46,6 +69,9 @@
           required
           placeholder="check-In Date"
         />
+        <div *ngIf="generalDetailsForm.controls['checkIn']?.touched && generalDetailsForm.controls['checkIn']?.invalid" class="error-message">
+          Check-In Date is required
+        </div>
         <label for="">Check-Out Date:</label>
         <input
           type="date"
@@ -53,6 +79,9 @@
           required
           placeholder="check-Out Date"
         />
+        <div *ngIf="generalDetailsForm.controls['checkOut']?.touched && generalDetailsForm.controls['checkOut']?.invalid" class="error-message">
+          Check-Out Date is required
+        </div>
         <button (click)="nextStep()">Next</button>
       </form>
     </div>
@@ -66,24 +95,36 @@
           placeholder="Card Holder Name"
           required
         />
+        <div *ngIf="paymentDetailsForm.controls['name']?.touched && paymentDetailsForm.controls['name']?.invalid" class="error-message">
+          Card Holder Name is required
+        </div>
         <input
           type="text"
           formControlName="cardType"
           placeholder="Enter Card Type"
           required
         />
+        <div *ngIf="paymentDetailsForm.controls['cardType']?.touched && paymentDetailsForm.controls['cardType']?.invalid" class="error-message">
+          Card Type is required
+        </div>
         <input
           type="number"
           formControlName="cardNumber"
           required
           placeholder="Enter Card Number"
         />
+        <div *ngIf="paymentDetailsForm.controls['cardNumber']?.touched && paymentDetailsForm.controls['cardNumber']?.invalid" class="error-message">
+          Card Number is required and must be 16 digits
+        </div>
         <input
           type="text"
           formControlName="cvv"
           required
           placeholder="Enter Your CVV"
         />
+        <div *ngIf="paymentDetailsForm.controls['cvv']?.touched && paymentDetailsForm.controls['cvv']?.invalid" class="error-message">
+          CVV is required
+        </div>
         <label for="">Expiry Date:</label>
         <input
           type="date"
@@ -91,8 +132,11 @@
           required
           placeholder="Enter expiry date"
         />
+        <div *ngIf="paymentDetailsForm.controls['expiryDate']?.touched && paymentDetailsForm.controls['expiryDate']?.invalid" class="error-message">
+          Expiry Date is required
+        </div>
         <button (click)="previousStep()">Previous</button>
-        <button (click)="submitBooking()">Confirm Payment</button>
+        <button [disabled]="paymentDetailsForm.invalid" (click)="submitBooking()">Confirm Payment</button>
       </form>
     </div>
   </div>
