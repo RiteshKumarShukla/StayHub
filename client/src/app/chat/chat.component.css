@@ -57,7 +57,7 @@ body {
   /* User message bubble */
   .user {
     align-self: flex-end;
-    background-color:#ff385c;
+    background-color:#4A154B;
     color: #ffffff;
   }
   
@@ -70,7 +70,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 7px 0 7px 8px;
-    border-color: transparent transparent transparent #ff385c;
+    border-color: transparent transparent transparent #4A154B;
     transform: translateY(-50%);
   }
   
@@ -110,6 +110,6 @@ body {
   }
   
   input[type='text']:focus {
-    border-color: #ff385c;
+    border-color:#4A154B;
     box-shadow: 0 0 5px rgba(60, 135, 224, 0.3);
   }

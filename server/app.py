@@ -104,9 +104,6 @@ def guest_login():
     if not verify_password(guest['password'], password):
         return jsonify({"error": "Invalid credentials"}), 401
 
-    # Set the user role to "guest" in the session
-    session['user_role'] = 'guest'
-
     return jsonify({"message": "Guest login successful"}), 200
 
 # Property routes

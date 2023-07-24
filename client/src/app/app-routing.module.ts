@@ -1,5 +1,6 @@
 // app-routing.module.ts
 import { NgModule } from '@angular/core';
+import { AuthGuard } from './auth.guard';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BookingsComponent } from './bookings/bookings.component';
@@ -12,9 +13,10 @@ import { BookingDetailComponent } from './booking-detail/booking-detail.componen
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'bookings', component: BookingsComponent },
+  { path: 'bookings', component: BookingsComponent,canActivate: [AuthGuard] },
   { path: 'properties', component: PropertiesComponent },
   { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'hosts', component: HostsComponent },
   { path: 'chat', component: ChatComponent },

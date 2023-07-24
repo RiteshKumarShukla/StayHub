@@ -16,6 +16,7 @@ import { HostsComponent } from './hosts/hosts.component';
 import { HostService } from './host.service';
 import { ChatComponent } from './chat/chat.component';
 import { BookingDetailComponent } from './booking-detail/booking-detail.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { BookingDetailComponent } from './booking-detail/booking-detail.componen
     CommonModule,
     AppRoutingModule,
   ],
-  providers: [PropertyService,HostService],
+  providers: [PropertyService,HostService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

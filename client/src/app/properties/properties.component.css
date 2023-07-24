@@ -77,7 +77,7 @@ input[type="text"] {
 }
 
 .book-now-button {
-  background-color: #ff385c;
+  background-color: #4A154B;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -89,7 +89,7 @@ input[type="text"] {
 }
 
 .book-now-button:hover {
-  background-color: #e63154;
+  background-color: #4A154B;
 }
 
 .pagination {
@@ -102,7 +102,7 @@ input[type="text"] {
 .pagination button {
   padding: 8px 15px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #4A154B;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -116,5 +116,5 @@ input[type="text"] {
 }
 
 .pagination button:hover {
-  background-color: #0056b3;
+  background-color:#4A154B;
 }

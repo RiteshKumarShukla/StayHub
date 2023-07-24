@@ -2,7 +2,7 @@
   <!-- Left side - Booking Details -->
   <div class="booking-details">
     <img [src]="bookingDetails.img" alt="Property Image" />
-    <p>{{ bookingDetails.title }}</p>
+    <h4>{{ bookingDetails.title }}</h4>
     <p>
       <strong>Price per Night:</strong> ${{ bookingDetails.price_per_night }}
     </p>
@@ -39,12 +39,14 @@
           required
           placeholder="Enter Your Gender"
         />
+        <label for="">Check-In Date:</label>
         <input
           type="date"
           formControlName="checkIn"
           required
           placeholder="check-In Date"
         />
+        <label for="">Check-Out Date:</label>
         <input
           type="date"
           formControlName="checkOut"
@@ -62,11 +64,13 @@
           type="text"
           formControlName="name"
           placeholder="Card Holder Name"
+          required
         />
         <input
           type="text"
           formControlName="cardType"
           placeholder="Enter Card Type"
+          required
         />
         <input
           type="number"
@@ -80,6 +84,7 @@
           required
           placeholder="Enter Your CVV"
         />
+        <label for="">Expiry Date:</label>
         <input
           type="date"
           formControlName="expiryDate"

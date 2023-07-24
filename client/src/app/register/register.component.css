@@ -20,7 +20,8 @@
   .register-form h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #ff385c;
+    font-weight: bolder;
+    color: #4A154B;
   }
   
   .register-form form {
@@ -50,7 +51,7 @@
   
   .form-group button {
     padding: 12px;
-    background-color: #e61c4d;
+    background-color: #4A154B;
     color: white;
     border: none;
     border-radius: 4px;
@@ -60,10 +61,10 @@
   }
   
   .form-group button:hover {
-    background-color: #ff385c;
+    background-color:#4A154B;
   }
   #registerbtn{
-    background:green;
+    background:#4A154B;
     height: 50px;
     color: white;
     font-size: larger;
@@ -71,15 +72,16 @@
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 20px;
     color: #333;
     text-align: center;
   }
   
   a {
-    color: #ff385c; /* Color of the link */
+    color: #4A154B; /* Color of the link */
     text-decoration: none;
+    font-weight: bolder;
   }
   
   a:hover {

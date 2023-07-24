@@ -3,6 +3,7 @@ import { PropertyService } from '../property.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'; // Import the Router service
 import Swal from 'sweetalert2'; // Import SweetAlert
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-properties',
@@ -22,6 +23,7 @@ export class PropertiesComponent implements OnInit {
   constructor(
     private propertyService: PropertyService,
     private http: HttpClient,
+    private authService: AuthService,
     private router: Router // Inject the Router service
   ) { }
 
@@ -63,6 +65,7 @@ export class PropertiesComponent implements OnInit {
   }
 
   bookProperty(property: any): void {
+    if (this.authService.isLoggedIn()) {
     this.http.post<any>('http://127.0.0.1:5000/api/properties/book', property).subscribe(
       (response: any) => {
         console.log('Booking successful:', response);
@@ -80,5 +83,9 @@ export class PropertiesComponent implements OnInit {
         Swal.fire('Booking Error', 'An error occurred while booking the property.', 'error');
       }
     );
+    }else {
+      // If the user is not logged in, redirect to the login page
+      this.router.navigate(['/login']);
+    }
   }
 }

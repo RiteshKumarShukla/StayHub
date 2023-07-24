@@ -10,20 +10,21 @@
   /* Styling for the left side (Booking Details) */
   .booking-details {
     flex: 1;
-    max-width: 500px;
+    max-width: 600px;
     padding: 20px;
+    /* height: 700px; */
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .booking-details h1 {
-    margin-bottom: 10px;
+  .booking-details h4 {
+    margin-top: 10px;
   }
   
   .booking-details img {
     width: 100%;
-    max-height: 200px;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 5px;
   }
@@ -33,7 +34,7 @@
   }
   
   .booking-details button {
-    background-color:#ff385c;
+    background-color:#4A154B;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -68,7 +69,7 @@
   }
   
   .booking-form button {
-    background-color:#ff385c;
+    background-color:#4A154B;
     color: #fff;
     padding: 10px 20px;
     margin: 5px;

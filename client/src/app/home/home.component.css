@@ -6,7 +6,7 @@
   background-color: white; /* Your theme color */
   padding-left: 140px;
   padding-top: 40px;
-  color: #ff385c;
+  color: #4A154B;
 }
 
 .left-side {
@@ -23,12 +23,13 @@
   font-size: 25px;
   margin-bottom: 40px;
   color: black;
+  font-weight: bolder;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  border: 3px solid #ff385c;
+  border: 3px solid #4A154B;
   width: 350px;
 }
 
@@ -42,7 +43,7 @@
 
 .search-icon {
   background-color: #fff;
-  border: 1px solid #ff385c;
+  border: 1px solid #4A154B;
   border-radius: 4px;
   padding: 10px;
   cursor: pointer;
@@ -74,7 +75,7 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: #ff385c; /* Your theme color */
+  background-color: #4A154B; /* Your theme color */
   padding: 10px;
   border-radius: 50%;
 }
@@ -87,8 +88,8 @@
 }
 
 .carousel-indicators li {
-  background-color: #ff385c; /* Your theme color */
-  border-color: #ff385c; /* Your theme color */
+  background-color: #4A154B; /* Your theme color */
+  border-color: #4A154B; /* Your theme color */
 }
 
 .carousel-indicators .active {

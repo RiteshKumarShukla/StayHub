@@ -63,7 +63,7 @@
 
 .form-group button.btn-submit {
 margin: 10px 0 10px 0;
-  background-color: #ff385c;
+  background-color: #4A154B;
 }
 
 .form-group button.btn-cancel {
@@ -119,7 +119,7 @@ margin: 10px 0 10px 0;
 
 .btn-edit {
   margin: 5px;
-  background-color: #007bff;
+  background-color: #4A154B;
   color: #fff;
   width: 90px;
 }
@@ -132,11 +132,11 @@ margin: 10px 0 10px 0;
 }
 #form_heading{
   text-align: center;
-  color: #ff385c;
+  color: #4A154B;
   font-weight: bold;
 }
 #table_tr{
-  background: #ff385c;
+  background: #4A154B;
  
 }
 #table_tr th{
