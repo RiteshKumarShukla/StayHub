@@ -142,4 +142,7 @@
   .search-bar>button{
     border: none;
   }
+  .carousel-inner{
+    height: 300px;
+  }
 }

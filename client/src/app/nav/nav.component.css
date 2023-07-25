@@ -71,6 +71,7 @@
     display: flex;
   }
 
+
   .navbar-links li {
     margin-right: 0;
     margin-bottom: 10px;
@@ -80,6 +81,13 @@
     display: block;
   }
 
+  .navbar-links>li{
+    border: 1px solid white;
+    width: 200px;
+    margin: auto;
+    margin-bottom: 8px;
+    text-align: center;
+  }
   .hamburger-line {
     width: 30px;
     height: 3px;

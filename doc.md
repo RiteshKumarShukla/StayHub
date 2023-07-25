@@ -1,4 +1,4 @@
-# StayHub Hotel  : Booking Web App
+# StayHub : Hotel Booking Web App
 
 ## Introduction
 
@@ -111,6 +111,9 @@ StayHub utilizes the following technologies:
 
 - The Admin page provides a dashboard for administrators to manage hotel properties efficiently.
 - Admins can add, update, or delete properties as required.
+
+
+
 
 ## 5. Conclusion
 
