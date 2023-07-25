@@ -62,7 +62,8 @@ input[type="text"] {
 }
 
 .property-card:hover {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .property-image {

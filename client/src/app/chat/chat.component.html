@@ -1,9 +1,26 @@
-<div class="chat-container">
+
+<div class="main">
+  <div class="left">
+    <img src="https://img.freepik.com/premium-vector/chat-bot-smartphone-chat-messenger-icon-support-service-icon-support-service-bot-say-users-hello-chatbot-greets-online-consultation-customer-service-support-assistance-call-center_435184-149.jpg?w=2000" alt="">
+    <h1>How can I assist you today? 👋</h1>
+  </div>
+  <div class="chat-container">
     <div class="chat-window">
-      <div *ngFor="let message of messages" class="message" [ngClass]="{'user': message.fromUser}">
+      <div
+        *ngFor="let message of messages"
+        class="message"
+        [ngClass]="{ user: message.fromUser }"
+      >
         {{ message.content }}
       </div>
     </div>
-    <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type your message..." />
+    <div class="input-container">
+      <input
+        [(ngModel)]="userInput"
+        (keyup.enter)="sendMessage()"
+        placeholder="Type your message..."
+      />
+      <button (click)="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
   </div>
-  
+</div>

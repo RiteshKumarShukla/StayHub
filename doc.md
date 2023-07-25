@@ -113,8 +113,6 @@ StayHub utilizes the following technologies:
 - Admins can add, update, or delete properties as required.
 
 
-
-
 ## 5. Conclusion
 
 Congratulations! You are now familiar with StayHub, the hotel booking web app with all its features for users and administrators. The app aims to simplify the hotel booking process while providing a delightful user experience.
