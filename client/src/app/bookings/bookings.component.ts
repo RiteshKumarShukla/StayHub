@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute } from '@angular/router';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from '../booking.service';
 import Swal from 'sweetalert2'; // Import SweetAlert
@@ -24,6 +23,15 @@ export class BookingsComponent implements OnInit {
       (response: any) => {
         console.log('Booked properties:', response);
         this.bookedProperties = response;
+
+        // Check if there are no booked properties
+        if (this.bookedProperties.length === 0) {
+          Swal.fire(
+            'Empty Booking List',
+            "You haven't added any properties to your bookings yet.",
+            'info'
+          );
+        }
       },
       (error: any) => {
         console.error('Error fetching booked properties:', error);
