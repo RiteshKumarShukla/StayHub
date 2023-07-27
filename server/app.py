@@ -4,6 +4,8 @@ from flask_cors import CORS
 from bson.objectid import ObjectId
 import bcrypt
 import openai
+import os
+api_key = os.environ.get('API_KEY')
 
 app = Flask(__name__)
 CORS(app) 
@@ -300,6 +302,40 @@ def delete_book_data(booking_id):
 
 
 # chatBot
+openai.api_key = api_key
+
+def has_hotel_booking_keywords(text):
+    keywords = ['hotel', 'booking', 'room', 'reservation', 'check-in', 'check-out']
+    return any(keyword in text.lower() for keyword in keywords)
+
+@app.route('/api/chat', methods=['POST'])
+def get_chatbot_response():
+    try:
+        user_message = request.json['prompt']
+        # Add a greeting message at the beginning of the conversation
+        chatbot_response = "Hello! I'm your hotel booking assistant. How can I assist you today? " + user_message
+        response = openai.Completion.create(
+            engine="text-davinci-002",
+            prompt=chatbot_response,
+            max_tokens=150,
+            temperature=0.7
+        )
+        chatbot_response = response['choices'][0]['text'].strip()
+
+        # Filter the response to include only relevant information
+        if not has_hotel_booking_keywords(chatbot_response):
+            # Generate a response relevant to the topic even for non-relevant questions
+            response = openai.Completion.create(
+                engine="text-davinci-002",
+                prompt="Hotel booking",
+                max_tokens=150,
+                temperature=0.7
+            )
+            chatbot_response = response['choices'][0]['text'].strip()
+
+        return jsonify({'text': chatbot_response})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
