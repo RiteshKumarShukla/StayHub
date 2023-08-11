@@ -131,3 +131,47 @@ The property listing page allows guests to browse and book available properties.
 | ------ | ---------------------------------- | ------------------------------------------- |
 | GET    | /api/properties/listings           | Retrieve paginated list of properties        |
 | GET    | /api/properties/{propertyId}/details | Retrieve detailed information for a property |
+
+
+
+
+## Landing Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/54ddc5f5-c788-4d6c-a949-0f89eb481bef)
+
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/2982b05b-b9fc-4d18-a2a3-4b4ac4fc87f8)
+
+
+## SignUP Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/443d2c78-d33f-4aea-81bb-54c02b17b138)
+
+## Login Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/f37123a7-a0a1-4804-a0b9-f3e0b3f48998)
+
+## Properties Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/d0fd1f9c-3276-4d02-ada6-5d8389f4e8f2)
+
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/224b1a0f-0a5b-43b0-83b3-f2085296934e)
+
+## Bookings Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/62100dd8-fc59-4a65-a5a6-e4bb70358793)
+
+## Checkout Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/104b60e2-145e-4374-bb21-e559fed6d491)
+
+
+## Payment Page
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/625c8c4e-491a-4599-aa7e-163e46f7a8de)
+
+
+## ChatBot Assistance
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/1d67d498-e762-44db-ba2a-4cd52bd215ed)
+
+
+## Admin Dashboard
+![image](https://github.com/RiteshKumarShukla/StayHub/assets/110231091/df274a96-4dc6-4f16-8223-1796277db10f)
+
+
+
+
+
+
